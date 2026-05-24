@@ -1,0 +1,24 @@
+import { Request, Response, NextFunction } from 'express';
+import { logger } from '../config/logger';
+
+export const errorHandler = (
+  err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || 'Internal Server Error';
+
+  logger.error(
+    `${req.method} ${req.originalUrl} - Error ${statusCode}: ${message}\nStack: ${err.stack}`
+  );
+
+  res.status(statusCode).json({
+    success: false,
+    message: process.env.NODE_ENV === 'production' && statusCode === 500
+      ? 'An unexpected error occurred. Please try again later.'
+      : message,
+    stack: process.env.NODE_ENV === 'development' ? err.stack : undefined,
+  });
+};
