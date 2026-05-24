@@ -2,6 +2,9 @@
 
 An industrial-grade, secure, and patent-ready AI-powered online interview monitoring and fraud detection platform. It implements low-latency client-side facial/eye mesh calculations combined with server-side multi-agent risk scoring to track candidate authenticity and generate secure hiring recommendations.
 
+- **Live Demo Link**: [https://ai-interview-fraud-detection.vercel.app](https://ai-interview-fraud-detection.vercel.app)
+- **GitHub Repository**: [https://github.com/Amratanshyadav/ai-interview-fraud-detection](https://github.com/Amratanshyadav/ai-interview-fraud-detection)
+
 ---
 
 ## Technical Architecture
